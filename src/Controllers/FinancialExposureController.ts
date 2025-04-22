@@ -149,16 +149,16 @@ class FinancialExposureController {
     }
 
     async DeleteFinancialExposureById(request: Request, response: Response): Promise<any> {
-        const { id } = request.body;
+        const { id } = request.query;
 
         try {
             var headerResponse = VerifyBasicAuth(request.headers['authorization']);
             if (!headerResponse.sucesso) return response.status(401).json(headerResponse);
 
-            var idResponse = ValidateString(id);
+            var idResponse = ValidateString(id as string);
             if (!idResponse.sucesso) return response.status(400).json(idResponse);
 
-            await DeleteFinancialExposureById(id);
+            await DeleteFinancialExposureById(id as string);
 
             return response.json({ sucesso: true });
         }
