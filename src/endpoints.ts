@@ -6,7 +6,7 @@ const endpoints = Router();
 endpoints.get("/", (req, res) => { res.send("Server On!") });
 endpoints.get("/getAll", FinancialExposureController.GetAllFinancialExposure);
 endpoints.get("/getByFilter", FinancialExposureController.GetAllFinancialExposureByFilter);
-endpoints.get("/getByOrderId", FinancialExposureController.GetAllFinancialExposureByOrderId);
+endpoints.get("/getByOrderId", FinancialExposureController.GetFinancialExposureByOrderId);
 
 endpoints.post('/postFinancialExposure', FinancialExposureController.PostFinancialExposure);
 

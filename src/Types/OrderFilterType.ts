@@ -1,0 +1,1 @@
+export type OrderFilter = "RECENT" | "MINPRICE" | "MAXPRICE" | "OLD"

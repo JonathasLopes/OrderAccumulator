@@ -2,8 +2,10 @@ import dbConnect from "../Database/mongoose";
 import FinancialExposure from "../Entities/FinancialExposureEntity";
 import { ActiveEnum } from "../Enums/ActiveEnum";
 import { OrderEnum } from "../Enums/OrderEnum";
+import { SortByFilter } from "../Helpers/SortByFilterHelper";
 import { IFinancialExposureDocument } from "../Interfaces/IFinancialExposureDocument";
 import FinancialExposureModel from "../Models/FinancialExposureModel";
+import { OrderFilter } from "../Types/OrderFilterType";
 
 async function CreateFinancialExposure(financialExposure: FinancialExposure) {
     try {
@@ -30,7 +32,7 @@ async function GetAllFinancialExposuresByActive(active: ActiveEnum) {
     }
 }
 
-async function GetAllFinancialExposuresByFilter(activeType?: any, orderType?: any) {
+async function GetAllFinancialExposuresByFilter(activeType?: any, orderType?: any, order?: any) {
     try {
         await dbConnect();
         const query: any = {};
@@ -39,7 +41,7 @@ async function GetAllFinancialExposuresByFilter(activeType?: any, orderType?: an
         if (orderType) query.OrderType = orderType as OrderEnum;
 
         const resp = await FinancialExposureModel.find(query).lean<IFinancialExposureDocument[]>();
-        const respFiltered = resp.map(FinancialExposure.fromMongoDB);
+        const respFiltered = SortByFilter(order ? order as OrderFilter : "RECENT", resp.map(FinancialExposure.fromMongoDB));
 
         return respFiltered;
     } catch (err) {
@@ -65,7 +67,7 @@ async function GetAllFinancialExposures() {
         await dbConnect();
 
         const resp = await FinancialExposureModel.find().lean<IFinancialExposureDocument[]>();
-        const respFiltered = resp.map(FinancialExposure.fromMongoDB);
+        const respFiltered = SortByFilter("RECENT", resp.map(FinancialExposure.fromMongoDB));
 
         return respFiltered;
     } catch (err) {

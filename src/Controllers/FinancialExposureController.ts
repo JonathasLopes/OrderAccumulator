@@ -69,13 +69,13 @@ class FinancialExposureController {
     }
 
     async GetAllFinancialExposureByFilter(request: Request, response: Response): Promise<any> {
-        const { activeType, orderType } = request.query;
+        const { activeType, orderType, order } = request.query;
 
         try {
             var headerResponse = VerifyBasicAuth(request.headers['authorization']);
             if (!headerResponse.sucesso) return response.status(401).json(headerResponse);
 
-            const allFinancialExposure = await GetAllFinancialExposuresByFilter(activeType, orderType);
+            const allFinancialExposure = await GetAllFinancialExposuresByFilter(activeType, orderType, order);
 
             return response.json({ sucesso: true, data: allFinancialExposure });
         }
@@ -84,7 +84,7 @@ class FinancialExposureController {
         }
     }
 
-    async GetAllFinancialExposureByOrderId(request: Request, response: Response): Promise<any> {
+    async GetFinancialExposureByOrderId(request: Request, response: Response): Promise<any> {
         const { id } = request.query;
 
         try {
