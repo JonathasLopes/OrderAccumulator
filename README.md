@@ -1,28 +1,24 @@
 # OrderAccumulator
 
-**OrderAccumulator** is a backend application built to a selection process that handle event accumulation and processing orders.
+**OrderAccumulator** é uma aplicação backend desenvolvida para um processo seletivo que lida com a acumulação de valores e o processamento de pedidos.
 
-## Description
+## Descrição
 
-This project collects and processes order data through a structured backend pipeline. It uses a layered architecture to separate responsibilities clearly: from authentication to database access and business entities. Ideal for technical evaluations and production-ready solutions requiring solid backend patterns.
+Este projeto coleta e processa dados de pedidos por meio de um pipeline backend estruturado. Utiliza uma arquitetura em camadas para separar claramente as responsabilidades: desde a autenticação até o acesso ao banco de dados e entidades de negócio.
 
-## Notable Techniques
+## Técnicas Notáveis
 
-- **[TypeScript interfaces](https://www.typescriptlang.org/docs/handbook/2/objects.html)**: Used extensively for type safety and contract enforcement across modules.
-- **[Dependency Injection](https://www.typescriptlang.org/docs/handbook/decorators.html)**: Simplifies testing and enhances modularity, especially in the service and repository layers.
-- **[HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)**: Explicit handling of responses improves API clarity and error diagnosis.
-- **Error handling pattern**: Consistent try-catch structure across controllers to isolate logic and surface precise errors.
+- **[Interfaces do TypeScript](https://www.typescriptlang.org/docs/handbook/2/objects.html)**: Usadas extensivamente para garantir segurança de tipos e contratos entre módulos.
+- **[Injeção de Dependência](https://www.typescriptlang.org/docs/handbook/decorators.html)**: Facilita testes e melhora a modularidade, especialmente nas camadas de serviço e repositório.
+- **[Códigos de status HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)**: O tratamento explícito de respostas melhora a clareza da API e o diagnóstico de erros.
+- **Padrão de tratamento de erros**: Estrutura consistente de try-catch nos controladores para isolar a lógica e evidenciar erros precisos.
 
-## Non-obvious Technologies
+## Tecnologias Usadas
 
-- **[Mongoose](https://mongoosejs.com/)**: ODM for MongoDB used to define schemas, manage relationships, and simplify interactions with the database.
-- **[jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)**: For token-based authentication and user session management.
+- **[Mongoose](https://mongoosejs.com/)**: ODM para MongoDB usado para definir esquemas, gerenciar relacionamentos e simplificar interações com o banco de dados.
+- **[jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)**: Para autenticação baseada em tokens e gerenciamento de sessões de usuário.
 
-## Fonts
-
-This project does not rely on frontend fonts but could be integrated with the [Roboto Font](https://fonts.google.com/specimen/Roboto) if extended to include a UI.
-
-## Project Structure
+## Estrutura do Projeto
 
 ```
 OrderAccumulator/
@@ -42,15 +38,15 @@ OrderAccumulator/
 │   └── index.ts
 ```
 
-### Directory Descriptions
+### Descrição dos Diretórios
 
-- **Authentications/**: Handles login logic and token validation.
-- **Controllers/**: Entry point for HTTP requests, processes input, and returns responses.
-- **Database/**: Manages database connection and initialization logic.
-- **Entities/**: Contains domain objects representing core data structures.
-- **Enums/**: Enumerated types for consistent value sets across the app.
-- **Helpers/**: Utility functions shared across modules.
-- **Interfaces/**: TypeScript interfaces used throughout the codebase.
-- **Models/**: ORM models used for data persistence.
-- **Repositories/**: Abstracts database operations, used by services or controllers.
-- **Types/**: Contains shared type definitions.
+- **Authentications/**: Lida com a lógica de login e validação de tokens.
+- **Controllers/**: Ponto de entrada para requisições HTTP, processa entradas e retorna respostas.
+- **Database/**: Gerencia a conexão e a lógica de inicialização do banco de dados.
+- **Entities/**: Contém objetos de domínio que representam as estruturas principais de dados.
+- **Enums/**: Tipos enumerados para conjuntos de valores consistentes na aplicação.
+- **Helpers/**: Funções utilitárias compartilhadas entre os módulos.
+- **Interfaces/**: Interfaces TypeScript usadas em todo o código.
+- **Models/**: Modelos ORM usados para persistência de dados.
+- **Repositories/**: Abstrai as operações com o banco de dados, usados por serviços ou controladores.
+- **Types/**: Contém definições de tipos compartilhados.
