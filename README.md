@@ -1,6 +1,6 @@
 # OrderAccumulator
 
-**OrderAccumulator** is a backend application built to handle event accumulation and processing. It is structured to support modularity, scalability, and maintainability. Designed for developers who want clarity in architecture and a strong foundation for extending business logic.
+**OrderAccumulator** is a backend application built to a selection process that handle event accumulation and processing orders.
 
 ## Description
 
@@ -15,8 +15,7 @@ This project collects and processes order data through a structured backend pipe
 
 ## Non-obvious Technologies
 
-- **[Zod](https://github.com/colinhacks/zod)**: Schema validation for request payloads, offering developer-friendly syntax and type inference.
-- **[bcryptjs](https://github.com/dcodeIO/bcrypt.js/)**: Lightweight password hashing utility used in authentication.
+- **[Mongoose](https://mongoosejs.com/)**: ODM for MongoDB used to define schemas, manage relationships, and simplify interactions with the database.
 - **[jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)**: For token-based authentication and user session management.
 
 ## Fonts
